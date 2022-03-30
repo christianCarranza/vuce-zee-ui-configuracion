@@ -10,7 +10,7 @@ export class AlertComponent implements OnInit {
   titulo = '';
   texto = '';
   txtCancelar = '';
-  txtGuardar = '';
+  txtGuardar = 'Aceptar';
   constructor(
     public _dialogRef: MatDialogRef<AlertComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any

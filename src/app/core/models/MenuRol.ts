@@ -1,7 +1,7 @@
 import { Menu } from "./Menu";
 import { Rol } from "./Rol";
 
-export interface MenuRol {
+export class MenuRol {
     id           : number;
     rolModel     : Rol;
     itemsModels  : Array<Menu>;

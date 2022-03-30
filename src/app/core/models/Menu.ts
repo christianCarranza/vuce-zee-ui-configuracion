@@ -1,4 +1,4 @@
-export interface Menu {
+export class Menu {
     id?: number;
     namePage?: string;
     urlPage?: string;

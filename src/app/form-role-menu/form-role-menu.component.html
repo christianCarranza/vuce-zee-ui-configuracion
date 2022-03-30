@@ -6,8 +6,7 @@
       
       <mat-form-field  fxFlex="30">
         <mat-label>Roles</mat-label>
-        <mat-select [(value)]="selected" 
-          placeholder="Seleccione">
+        <mat-select [formControl]="selectRolControl" required (selectionChange)="selectRol()">
           
           <mat-option>Ninguno</mat-option>
           <mat-option *ngFor="let rol of Roles" [value]="rol.id">
@@ -15,6 +14,7 @@
           </mat-option>
 
         </mat-select>
+        <mat-error *ngIf="selectRolControl.hasError('required')">Seleccione un rol</mat-error>
       </mat-form-field>
 
       <button fxFlexAlign="center" mat-raised-button color="accent" type="button" (click)="openModal('rol')">Nuevo</button>
@@ -29,7 +29,7 @@
                       [checked]="allComplete"
                       [indeterminate]="someComplete()"
                       (change)="setAll($event.checked)"
-                      [disabled]="selected === ''">
+                      [disabled]="selectRolControl.hasError('required')">
           {{menu.namePage}}
         </mat-checkbox>
       </span>
@@ -38,7 +38,7 @@
           <li *ngFor="let subMenu of subMenus">
             <mat-checkbox [(ngModel)]="subMenu.completed"
                           (ngModelChange)="updateAllComplete()"
-                          [disabled]="selected === ''">
+                          [disabled]="selectRolControl.hasError('required')">
               {{subMenu.namePage}}
             </mat-checkbox>
           </li>
@@ -47,7 +47,9 @@
 
 
       <div class="padding-button" fxLayout="row"  fxLayoutAlign="center" fxLayoutGap="1.5rem">
-        <button fxFlexAlign="center" mat-raised-button color="accent" type="button">Guardar</button>
+        <button fxFlexAlign="center" mat-raised-button color="accent" type="button" 
+                [disabled]="selectRolControl.hasError('required')"
+                (click)="saveMenuRol()">Guardar</button>
         <button fxFlexAlign="center" mat-raised-button color="accent" type="button">Cancelar</button>
 
       </div>
