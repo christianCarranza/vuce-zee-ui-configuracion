@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl  } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Rol } from 'src/app/core/models/Rol';
 import { AlertService } from 'src/app/shared/components/alert/alert.service';
 import { NewModalService } from 'src/app/shared/components/new-modal/new-modal.service';
@@ -24,10 +23,6 @@ export class FormRoleMenuComponent implements OnInit {
   allComplete: boolean = false;
   isEdit:boolean = false;
 
-  // subMenus: Menu[] = [
-  //   { id: 1, namePage: 'Administrador', urlPage: 'Administrador del sistema', fechaCreacion: '2017-12-11', completed: false },
-  // ];
-
   private Mrol: MenuRol = new MenuRol();
   private rolClass: Rol = new Rol();
   // private menuClass: Menu = new Menu();
@@ -50,7 +45,6 @@ export class FormRoleMenuComponent implements OnInit {
     private rolService: RolService,
     private _newModal: NewModalService,
     private _alert: AlertService,
-    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -71,17 +65,6 @@ export class FormRoleMenuComponent implements OnInit {
 
   openModal(tipo: string) {
     this._newModal.OpenModal(tipo);
-  }
-
-  // selectRol(_Rol){
-
-  // }
-
-  realizeActionWithForm(rpta: any) {
-    console.log("--> "+rpta.data);
-    if (rpta.result) {
-      // this.formLotes.get(rpta.nameField)?.setValue(rpta.data);
-    }
   }
 
   selectRol(){
@@ -181,12 +164,7 @@ export class FormRoleMenuComponent implements OnInit {
         this.ByRol(this.idRolSelect);
       })
     }
-
-    // debugger;
-    
-    
     this.menuClass=[];
-
   }
 
 }
