@@ -6,23 +6,34 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:single-spa:vuce-zee-ui-configuracion": "ng build vuce-zee-ui-configuracion --configuration production",
+    "serve:single-spa:vuce-zee-ui-configuracion": "ng s --project vuce-zee-ui-configuracion --disable-host-check --port 4208 --live-reload false"
   },
   "private": true,
   "dependencies": {
+    "@angular-builders/dev-server": "^7.3.1",
     "@angular/animations": "~13.3.0",
+    "@angular/cdk": "^13.3.1",
     "@angular/common": "~13.3.0",
     "@angular/compiler": "~13.3.0",
     "@angular/core": "~13.3.0",
+    "@angular/flex-layout": "^13.0.0-beta.38",
     "@angular/forms": "~13.3.0",
+    "@angular/material": "^13.3.1",
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@sencha/ext-webpack-plugin": "^7.5.1",
+    "@webcomponents/webcomponentsjs": "^2.6.0",
     "rxjs": "~7.5.0",
+    "single-spa": ">=4.0.0",
+    "single-spa-angular": "^6.1.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^13.1.0",
     "@angular-devkit/build-angular": "~13.3.0",
     "@angular/cli": "~13.3.0",
     "@angular/compiler-cli": "~13.3.0",
@@ -34,6 +45,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "style-loader": "^3.3.1",
     "typescript": "~4.6.2"
   }
 }

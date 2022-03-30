@@ -1,0 +1,30 @@
+<h1 matDialogTitle class="mat-bg-primary">{{ titulo }}</h1>
+
+<div mat-dialog-content class="new-modal" gdColumns="auto" [formGroup]="formRegistro" >
+  <mat-form-field>
+    <mat-label>(*) Nombre</mat-label>
+    <input type="text" matInput uppercase placeholder="Ingresar el nombre"
+      formControlName="nombre" />
+    <!-- <mat-error *ngIf="nombre?.errors?.required">
+      Este campo es requerido
+    </mat-error>
+    <mat-error *ngIf="nombre?.errors?.errorBack">
+      {{nombre?.errors?.errorBack}}
+    </mat-error> -->
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>(*) Descripcion</mat-label>
+    <input type="text" matInput placeholder="Ingresar la descripcion"
+      formControlName="descripcion" />
+    <!-- <mat-error *ngIf="referencia?.errors?.required">
+      Este campo es requerido
+    </mat-error> -->
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="start">
+  <button type="button" mat-raised-button color="accent" (click)="_dialogRef.close({result:false})">Cancelar</button>
+  <button type="button" mat-raised-button color="accent" [disabled]="!formRegistro.valid"
+    (click)="saveInfoTerreno()">Guardar
+  </button>
+</div>

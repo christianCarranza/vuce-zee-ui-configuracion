@@ -1,0 +1,13 @@
+<h1 matDialogTitle class="mat-bg-primary text-center"  >{{ titulo }}</h1>
+
+<div mat-dialog-content >
+  <p class="text-center">{{texto}}</p>
+</div>
+<div mat-dialog-actions align="center">
+  <button type="button" mat-raised-button color="accent" (click)="_dialogRef.close(false)">
+    {{txtCancelar}}
+  </button>
+  <button type="button" mat-raised-button color="accent" (click)="_dialogRef.close(true)">
+    {{txtGuardar}}
+  </button>
+</div>

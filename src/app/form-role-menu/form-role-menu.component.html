@@ -1,0 +1,58 @@
+<div class="container">
+  <h1 class="title">Asignar Menu</h1>
+  <mat-card class="overflow-hidden border-bottom m-0">
+
+    <div fxLayout="row"  fxLayoutAlign="center" fxLayoutGap="1.5rem">
+      
+      <mat-form-field  fxFlex="30">
+        <mat-label>Roles</mat-label>
+        <mat-select [(value)]="selected" 
+          placeholder="Seleccione">
+          
+          <mat-option>Ninguno</mat-option>
+          <mat-option *ngFor="let rol of Roles" [value]="rol.id">
+            {{rol.rolName}}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <button fxFlexAlign="center" mat-raised-button color="accent" type="button" (click)="openModal('rol')">Nuevo</button>
+      <button fxFlexAlign="center" mat-raised-button color="accent" type="button">Editar</button>
+    
+    </div>
+
+    <div class="padding-check">
+      <h4>Seleccione los menus para asignar al rol</h4>
+      <span>
+        <mat-checkbox class="example-margin"
+                      [checked]="allComplete"
+                      [indeterminate]="someComplete()"
+                      (change)="setAll($event.checked)"
+                      [disabled]="selected === ''">
+          {{menu.namePage}}
+        </mat-checkbox>
+      </span>
+      <span>
+        <ul>
+          <li *ngFor="let subMenu of subMenus">
+            <mat-checkbox [(ngModel)]="subMenu.completed"
+                          (ngModelChange)="updateAllComplete()"
+                          [disabled]="selected === ''">
+              {{subMenu.namePage}}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+
+
+      <div class="padding-button" fxLayout="row"  fxLayoutAlign="center" fxLayoutGap="1.5rem">
+        <button fxFlexAlign="center" mat-raised-button color="accent" type="button">Guardar</button>
+        <button fxFlexAlign="center" mat-raised-button color="accent" type="button">Cancelar</button>
+
+      </div>
+    </div>
+  </mat-card>
+
+</div>
+
