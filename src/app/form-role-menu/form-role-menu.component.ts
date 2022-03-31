@@ -127,6 +127,7 @@ export class FormRoleMenuComponent implements OnInit {
     );
   }
 
+  //buscar por rol
   ByRol(id:number): void{
     this.rolService.getByRol(id).subscribe(
       bymenuRol => this.byRol = bymenuRol      
